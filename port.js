@@ -9,6 +9,22 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
+// Dark mode toggle
+const toggleBtn = document.getElementById("dark-mode-toggle");
+const body = document.body;
+
+toggleBtn.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  // Change icon between moon & sun
+  const icon = toggleBtn.querySelector("i");
+  if (body.classList.contains("dark-mode")) {
+    icon.classList.replace("fa-moon", "fa-sun");
+  } else {
+    icon.classList.replace("fa-sun", "fa-moon");
+  }
+});
+
+
 // ===== Contact Form Validation =====
 const form = document.querySelector(".contact-section form");
 form.addEventListener("submit", function (e) {
@@ -44,29 +60,30 @@ const themes = [
 
 let currentTheme = 0;
 
-// Create a small theme toggle button
-const themeBtn = document.createElement("button");
-themeBtn.textContent = " Change Theme";
-themeBtn.style.position = "fixed";
-themeBtn.style.bottom = "20px";
-themeBtn.style.right = "20px";
-themeBtn.style.padding = "10px 15px";
-themeBtn.style.background = "#444";
-themeBtn.style.color = "#fff";
-themeBtn.style.border = "none";
-themeBtn.style.cursor = "pointer";
-themeBtn.style.borderRadius = "8px";
-document.body.appendChild(themeBtn);
 
-themeBtn.addEventListener("click", () => {
-  currentTheme = (currentTheme + 1) % themes.length;
-  document.body.style.backgroundColor = themes[currentTheme].bg;
-  document.documentElement.style.setProperty(
-    "--text-color",
-    themes[currentTheme].text
-  );
-  document.documentElement.style.setProperty(
-    "--link-color",
-    themes[currentTheme].link
-  );
-});
+// // Create a small theme toggle button
+// const themeBtn = document.createElement("button");
+// themeBtn.textContent = " Change Theme";
+// themeBtn.style.position = "fixed";
+// themeBtn.style.bottom = "20px";
+// themeBtn.style.right = "20px";
+// themeBtn.style.padding = "10px 15px";
+// themeBtn.style.background = "#444";
+// themeBtn.style.color = "#fff";
+// themeBtn.style.border = "none";
+// themeBtn.style.cursor = "pointer";
+// themeBtn.style.borderRadius = "8px";
+// document.body.appendChild(themeBtn);
+
+// themeBtn.addEventListener("click", () => {
+//   currentTheme = (currentTheme + 1) % themes.length;
+//   document.body.style.backgroundColor = themes[currentTheme].bg;
+//   document.documentElement.style.setProperty(
+//     "--text-color",
+//     themes[currentTheme].text
+//   );
+//   document.documentElement.style.setProperty(
+//     "--link-color",
+//     themes[currentTheme].link
+//   );
+// });

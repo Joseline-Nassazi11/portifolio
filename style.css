@@ -4,17 +4,18 @@ body {
     min-width: 140px;
     margin: 0 auto;
 }
+html {
+    scroll-behavior: smooth;
+}
+
 
 /* navbar*/
 :root {
-    --text-color: #1C1C1C;
-    /* Dark gray for text */
-    --background-color: #ffffff;
-    /* White for background */
+    --text-color: #1C1C1C;          /* Dark gray for text */
+    --background-color: #ffffff;    /* White for background */
 }
 :root {
-    --link-color: #4C8BF5;
-    /* or any color you want */
+    --link-color: #4C8BF5;        /* or any color you want */
 }
 
 nav {
@@ -48,6 +49,14 @@ nav .right a:last-child {
 nav .right a span {
     margin-left: 5px;
 }
+
+nav a {
+    text-decoration: none;
+    /* removes underline */
+    color: inherit;
+    /* optional: makes link take parent text color */
+}
+
 /*section 1*/
 .hero-section {
     display: flex;
@@ -72,6 +81,34 @@ nav .right a span {
 .hero-section .headshot img {
     width: 300px;
     border-radius: 50px;
+}
+
+.hero-section h2 {
+     font-size: 42px;
+     font-weight: 800;
+     text-align: center;
+     background: linear-gradient(90deg, #0077ff, #00ff99);
+     background-clip: text;
+     /* standard */
+     -webkit-background-clip: text;
+     /* for Chrome/Safari */
+     -webkit-text-fill-color: transparent;
+ }
+
+.hero-section .text {
+    font-size: 18px;     /* comfortable size */
+    line-height: 1.8;    /* adds breathing space */
+    color: #444;       /* softer dark gray for readability */
+    text-align: center;  /* centered under heading */
+    max-width: 700px;    /* keeps it from being too wide */
+    margin: 0 auto 30px; /* center + spacing below */
+    font-family: 'Poppins', sans-serif;
+
+    /* subtle effect */
+    background: linear-gradient(90deg, #333, #666);
+    background-clip: text;            /* standard */
+    -webkit-background-clip: text;    /* Chrome/Safari */
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-section .text h2 {
@@ -194,8 +231,34 @@ nav .right a span {
 }
 
 .skills-section h2 {
+     font-size: 42px;
+     font-weight: 800;
+     text-align: center;
+     background: linear-gradient(90deg, #0077ff, #00ff99);
+     background-clip: text;           /* standard */
+     -webkit-background-clip: text;   /* for Chrome/Safari */
+     -webkit-text-fill-color: transparent;
+ }
+
+.skills-section h2 {
    text-align: center;
    font-size: 35px; 
+}
+
+.skills-section .text {
+    font-size: 18px;           /* comfortable size */
+    line-height: 1.8;         /* adds breathing space */
+    color: #444;           /* softer dark gray for readability */
+    text-align: center;      /* centered under heading */
+    max-width: 700px;        /* keeps it from being too wide */
+    margin: 0 auto 30px;    /* center + spacing below */
+    font-family: 'Poppins', sans-serif;
+
+    /* subtle effect */
+    background: linear-gradient(90deg, #333, #666);
+    background-clip: text;               /* standard */
+    -webkit-background-clip: text;      /* Chrome/Safari */
+    -webkit-text-fill-color: transparent;
 }
 
 .skills-section .text {
@@ -247,6 +310,16 @@ nav .right a span {
 }
 
 .testimony-section h2 {
+     font-size: 42px;
+     font-weight: 800;
+     text-align: center;
+     background: linear-gradient(90deg, #0077ff, #00ff99);
+     background-clip: text;           /* standard */
+     -webkit-background-clip: text;   /* for Chrome/Safari */
+     -webkit-text-fill-color: transparent;
+ }
+
+.testimony-section h2 {
     font-size: 35px;
     margin-bottom: 30px;
 }
@@ -260,6 +333,22 @@ nav .right a span {
 .testimony-section .group .person-details {
   text-align: center;
   flex: 2;
+}
+
+.testimony-section .group .text {
+    font-size: 18px;/* comfortable size */
+    line-height: 1.8;        /* adds breathing space */
+    color: #444;          /* softer dark gray for readability */
+    text-align: center;    /* centered under heading */
+    max-width: 700px;      /* keeps it from being too wide */
+    margin: 0 auto 30px;   /* center + spacing below */
+    font-family: 'Poppins', sans-serif;
+
+    /* subtle effect */
+    background: linear-gradient(90deg, #333, #666);
+    background-clip: text;/* standard */
+    -webkit-background-clip: text;/* Chrome/Safari */
+    -webkit-text-fill-color: transparent;
 }
 
 .testimony-section .group .text {
@@ -286,10 +375,100 @@ nav .right a span {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* nice soft shadow */
 }
 
+/* Project */
+/* === Projects Section === */
+.projects-section {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+h2 {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(90deg, #0077ff, #00ff99);
+    background-clip: text;           /* standard */
+    -webkit-background-clip: text;   /* for Chrome/Safari */
+    -webkit-text-fill-color: transparent;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.project-cards .card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.project-cards .card:hover {
+    transform: translateY(-8px);
+}
+
+.project-cards img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-cards a {
+    display: inline-block;
+    margin: 8px;
+    padding: 8px 14px;
+    background: #0077b6;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.project-cards a:hover {
+    background: #023e8a;
+}
+
+/* === Dark Mode === */
+body.dark-mode {
+    background: #121212;
+    color: #eee;
+}
+
+body.dark-mode nav,
+body.dark-mode .card,
+body.dark-mode footer {
+    background: #1e1e1e;
+    color: #eee;
+}
+
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    margin-left: 10px;
+}
+
+body.dark-mode #dark-mode-toggle {
+    color: #eee;
+}
 
 /*Section 4: contact*/
 .contact-section {
@@ -297,6 +476,15 @@ img {
     margin-bottom: 100px; 
 }
 
+.contact-section h2 {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(90deg, #0077ff, #00ff99);
+    background-clip: text;            /* standard */
+    -webkit-background-clip: text;   /* for Chrome/Safari */
+    -webkit-text-fill-color: transparent;
+}
 .contact-section h2 {
     font-size: 35px;
 }
@@ -306,12 +494,29 @@ img {
     gap: 50px;
 }
 
+.contact-section .text {
+    font-size: 18px;          /* comfortable size */
+    line-height: 1.8;        /* adds breathing space */
+    color: #444;          /* softer dark gray for readability */
+    text-align: center;    /* centered under heading */
+    max-width: 700px;     /* keeps it from being too wide */
+    margin: 0 auto 30px;  /* center + spacing below */
+    font-family: 'Poppins', sans-serif;
+
+    /* subtle effect */
+    background: linear-gradient(90deg, #333, #666);
+    background-clip: text;    /* standard */
+    -webkit-background-clip: text;    /* Chrome/Safari */
+    -webkit-text-fill-color: transparent;
+}
 .contact-section .group .text {
     flex: 3;
     margin-top: 20px;
 }
 
 .contact-section .group form {
+    width: 400px;    /*adjust to your liking*/
+     margin: 0 auto; /*centers the form */
     flex: 3;
     display: flex;
     flex-direction: column;
@@ -356,4 +561,81 @@ img {
 /*Sectin 3:Testimony*/
 .testimony-section {
     padding: 0 20px;
+}
+
+.footer {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #e5e7eb;
+    padding: 50px 20px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-about h3 {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #0077ff, #00ff99);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-about p {
+    margin-top: 10px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.footer-links h4,
+.footer-socials h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #00ff99;
+}
+
+.footer-socials a {
+    font-size: 22px;
+    margin-right: 15px;
+    color: #cbd5e1;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #00ff99;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    font-size: 14px;
+    color: #94a3b8;
 }
