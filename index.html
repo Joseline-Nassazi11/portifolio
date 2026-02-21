@@ -17,7 +17,6 @@
             --accent: #c8502a;
             --gold: #d4a853;
             --muted: #6b6560;
-            --radius: 4px;
         }
 
         *,
@@ -32,9 +31,18 @@
             scroll-behavior: smooth;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 1. PREMIUM BACKGROUND GRADIENT */
         body {
             font-family: 'DM Sans', sans-serif;
-            background: var(--paper);
+            background:
+                radial-gradient(circle at 10% 20%, rgba(200, 80, 42, 0.06), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 168, 83, 0.08), transparent 40%),
+                var(--paper);
             color: var(--ink);
             overflow-x: hidden;
         }
@@ -49,6 +57,7 @@
             opacity: 0.5;
         }
 
+        /* 2. PREMIUM NAVBAR */
         nav {
             position: fixed;
             top: 0;
@@ -62,6 +71,7 @@
             background: rgba(245, 243, 238, 0.88);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
 
         .logo {
@@ -89,10 +99,26 @@
             text-decoration: none;
             letter-spacing: 0.02em;
             transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
             color: var(--ink);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-cta {
@@ -108,6 +134,11 @@
             background: var(--accent) !important;
         }
 
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        /* HERO */
         .hero {
             min-height: 100vh;
             padding: 160px 60px 80px;
@@ -200,6 +231,7 @@
             animation: fadeUp 0.6s ease 0.3s both;
         }
 
+        /* 5. PREMIUM BUTTONS */
         .btn-primary {
             padding: 13px 26px;
             background: var(--accent);
@@ -214,8 +246,8 @@
 
         .btn-primary:hover {
             background: #a83e1c;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(200, 80, 42, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200, 80, 42, 0.4);
         }
 
         .btn-ghost {
@@ -233,6 +265,8 @@
         .btn-ghost:hover {
             background: var(--ink);
             color: var(--paper);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .btn-cv {
@@ -252,7 +286,8 @@
         .btn-cv:hover {
             background: var(--gold);
             color: white;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 168, 83, 0.4);
         }
 
         .hero-social {
@@ -287,6 +322,7 @@
             color: #25D366;
         }
 
+        /* 3. HERO IMAGE WITH HOVER ZOOM */
         .hero-visual {
             display: flex;
             justify-content: center;
@@ -298,6 +334,7 @@
             position: relative;
             width: 360px;
             height: 460px;
+            overflow: hidden;
         }
 
         .hero-img-wrap::before {
@@ -320,6 +357,11 @@
             object-fit: cover;
             object-position: top;
             border-radius: 2px;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-img-wrap:hover img {
+            transform: scale(1.05);
         }
 
         .hero-stats {
@@ -350,6 +392,7 @@
             margin-top: 4px;
         }
 
+        /* MARQUEE */
         .marquee-section {
             background: var(--ink);
             padding: 18px 0;
@@ -390,10 +433,12 @@
             }
         }
 
+        /* 7. SMOOTH SECTION ENTRANCE */
         .section {
             max-width: 1200px;
             margin: 0 auto;
             padding: 100px 60px;
+            animation: fadeUp 1s ease both;
         }
 
         .section-label {
@@ -425,6 +470,7 @@
             margin-bottom: 60px;
         }
 
+        /* SKILLS */
         .skills-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -477,6 +523,7 @@
             transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        /* PROJECTS */
         .projects-bg {
             background: var(--ink);
             padding: 100px 0;
@@ -500,19 +547,22 @@
             color: var(--paper);
         }
 
+        /* 4. AUTO-FIT RESPONSIVE GRID */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2px;
         }
 
+        /* 4. PREMIUM FLOATING CARDS */
         .project-card {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.06);
             padding: 36px;
-            transition: background 0.3s;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(6px);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
         .project-card::before {
@@ -530,6 +580,8 @@
 
         .project-card:hover {
             background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
         }
 
         .project-card:hover::before {
@@ -622,7 +674,7 @@
         }
 
         .project-card.featured h3 {
-            font-size: 26px;
+            font-size: 24px;
         }
 
         .project-card p {
@@ -666,6 +718,7 @@
             font-size: 12px;
         }
 
+        /* CONTACT */
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -740,8 +793,8 @@
 
         .whatsapp-btn:hover {
             background: #1ebe57;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
         }
 
         .contact-form {
@@ -809,15 +862,18 @@
 
         .btn-submit:hover {
             background: var(--accent);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(200, 80, 42, 0.3);
         }
 
+        /* 8. PREMIUM FOOTER */
         footer {
             background: var(--ink);
             padding: 50px 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .footer-logo {
@@ -883,6 +939,7 @@
             transform: translateY(0);
         }
 
+        /* ── TABLET 900px ── */
         @media (max-width: 900px) {
             nav {
                 padding: 18px 24px;
@@ -890,6 +947,14 @@
 
             .nav-links .nav-label {
                 display: none;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 12px;
             }
 
             .hero {
@@ -925,10 +990,6 @@
                 padding: 0 24px;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
             .project-card.featured {
                 grid-template-columns: 1fr;
             }
@@ -957,6 +1018,102 @@
                 gap: 20px;
                 text-align: center;
                 padding: 40px 24px;
+            }
+        }
+
+        /* ── PHONE 600px ── */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 38px;
+                line-height: 1.1;
+            }
+
+            .hero-desc {
+                font-size: 15px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .hero-actions a {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .hero-social {
+                gap: 14px;
+            }
+
+            .hero-img-wrap {
+                width: 220px;
+                height: 280px;
+            }
+
+            .hero-stats {
+                left: -5px;
+                bottom: -10px;
+                padding: 14px 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .project-card {
+                padding: 24px;
+            }
+
+            .project-card.featured {
+                gap: 24px;
+            }
+
+            .project-img {
+                height: 180px;
+            }
+
+            .projects-inner {
+                padding: 0 20px;
+            }
+
+            .section {
+                padding: 70px 20px;
+            }
+
+            .contact-info p {
+                font-size: 15px;
+            }
+
+            .whatsapp-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .btn-submit {
+                width: 100%;
+                text-align: center;
+            }
+
+            .marquee-track {
+                gap: 40px;
+            }
+        }
+
+        /* ── VERY SMALL 420px ── */
+        @media (max-width: 420px) {
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero-tag {
+                font-size: 11px;
+            }
+
+            .hero-social a {
+                font-size: 18px;
             }
         }
     </style>
@@ -1002,12 +1159,11 @@
                 <a href="mailto:nassazijoselynn4@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
-
         <div class="hero-visual">
             <div class="hero-img-wrap">
                 <img src="headshot.jpeg" alt="Joseline Nassazi — AI & Software Engineer">
                 <div class="hero-stats">
-                    <div class="stat-num">4+</div>
+                    <div class="stat-num">5+</div>
                     <div class="stat-label">Projects Built</div>
                 </div>
             </div>
@@ -1022,6 +1178,7 @@
             <div class="marquee-item"><span class="marquee-dot">✦</span> Vue JS</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Artificial Intelligence</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Python</div>
+            <div class="marquee-item"><span class="marquee-dot">✦</span> Streamlit</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> UI / UX Design</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Figma</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Machine Learning</div>
@@ -1031,6 +1188,7 @@
             <div class="marquee-item"><span class="marquee-dot">✦</span> Vue JS</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Artificial Intelligence</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Python</div>
+            <div class="marquee-item"><span class="marquee-dot">✦</span> Streamlit</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> UI / UX Design</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Figma</div>
             <div class="marquee-item"><span class="marquee-dot">✦</span> Machine Learning</div>
@@ -1104,6 +1262,26 @@
                         <div class="featured-badge"><i class="fa-solid fa-robot"></i> AI Project</div>
                         <div class="project-num">01</div>
                         <div class="project-tech">
+                            <span>Python</span><span>GPT-4o</span><span>Streamlit</span><span>Plotly</span>
+                        </div>
+                        <h3>AI Interview Practice Assistant Pro</h3>
+                        <p>Built a full AI-powered interview preparation tool that simulates real technical, behavioral,
+                            and system design interviews. Features 6 prompt engineering techniques, multi-domain
+                            support, readiness scoring, real-time cost tracking, and a full analytics dashboard —
+                            powered by GPT-4o and Streamlit.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="project-link"><i
+                                    class="fa-brands fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                    <img class="project-img" src="ai-interview.png" alt="AI Interview Practice Assistant Pro">
+                </div>
+
+                <div class="project-card featured reveal">
+                    <div class="project-content">
+                        <div class="featured-badge"><i class="fa-solid fa-robot"></i> AI Project</div>
+                        <div class="project-num">02</div>
+                        <div class="project-tech">
                             <span>Python</span><span>GPT-4o</span><span>MCP Server</span><span>RAG</span>
                         </div>
                         <h3>AI Career Consultant Bot</h3>
@@ -1120,7 +1298,7 @@
                 </div>
 
                 <div class="project-card reveal">
-                    <div class="project-num">02</div>
+                    <div class="project-num">03</div>
                     <img class="project-img" src="fashion-house.png" alt="Fashion House"
                         onerror="this.src='https://placehold.co/400x200/1a1a2e/c8502a?text=Fashion+House'">
                     <div class="project-tech"><span>HTML</span><span>CSS</span><span>Figma</span></div>
@@ -1137,7 +1315,7 @@
                 </div>
 
                 <div class="project-card reveal">
-                    <div class="project-num">03</div>
+                    <div class="project-num">04</div>
                     <img class="project-img" src="mwf.png" alt="Mayondo Wood & Furniture"
                         onerror="this.src='https://placehold.co/400x200/1a1a2e/d4a853?text=MWF'">
                     <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
@@ -1152,7 +1330,7 @@
                 </div>
 
                 <div class="project-card reveal">
-                    <div class="project-num">04</div>
+                    <div class="project-num">05</div>
                     <img class="project-img" src="e-commerce.png" alt="E-Commerce"
                         onerror="this.src='https://placehold.co/400x200/1a1a2e/e8956a?text=E-Commerce'">
                     <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
@@ -1263,6 +1441,7 @@
     </footer>
 
     <script>
+        // SCROLL REVEAL
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, i) => {
@@ -1271,6 +1450,7 @@
         }, { threshold: 0.1 });
         reveals.forEach(el => observer.observe(el));
 
+        // SKILL BARS
         const skillFills = document.querySelectorAll('.skill-fill');
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1282,6 +1462,7 @@
         }, { threshold: 0.4 });
         skillFills.forEach(fill => skillObserver.observe(fill));
 
+        // CONTACT FORM
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const formSuccess = document.getElementById('formSuccess');
@@ -1306,6 +1487,15 @@
             submitBtn.textContent = 'Send Message →';
             submitBtn.disabled = false;
             submitBtn.style.opacity = '1';
+        });
+
+        // 6. CURSOR GLOW EFFECT
+        const glow = document.createElement("div");
+        glow.style.cssText = "position:fixed;width:400px;height:400px;border-radius:50%;pointer-events:none;background:radial-gradient(circle, rgba(200,80,42,0.12), transparent 60%);z-index:0;transition:left 0.08s ease,top 0.08s ease;";
+        document.body.appendChild(glow);
+        document.addEventListener("mousemove", e => {
+            glow.style.left = e.clientX - 200 + "px";
+            glow.style.top = e.clientY - 200 + "px";
         });
     </script>
 </body>
