@@ -76,7 +76,6 @@
             z-index: 0;
         }
 
-        /* NAVBAR */
         nav {
             position: fixed;
             top: 0;
@@ -160,7 +159,6 @@
             display: none !important;
         }
 
-        /* HERO */
         .hero {
             min-height: 100vh;
             padding: 160px 60px 80px;
@@ -357,7 +355,6 @@
             box-shadow: 0 0 15px rgba(37, 211, 102, 0.2);
         }
 
-        /* HERO VISUAL */
         .hero-visual {
             display: flex;
             justify-content: center;
@@ -422,8 +419,8 @@
 
         .hero-stats {
             position: absolute;
-            bottom: 0px;
-            left: 0px;
+            bottom: 0;
+            left: 0;
             background: var(--bg2);
             color: var(--text);
             padding: 16px 20px;
@@ -455,8 +452,8 @@
 
         .spec-badges {
             position: absolute;
-            top: 0px;
-            right: 0px;
+            top: 0;
+            right: 0;
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -675,7 +672,6 @@
             }
         }
 
-        /* SECTIONS */
         .section {
             max-width: 1200px;
             margin: 0 auto;
@@ -719,7 +715,6 @@
             background-clip: text;
         }
 
-        /* SKILLS */
         .skills-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -813,7 +808,6 @@
             box-shadow: 0 0 10px var(--purple-glow);
         }
 
-        /* PROJECTS */
         .projects-bg {
             background: var(--bg2);
             padding: 100px 0;
@@ -925,26 +919,69 @@
             margin-bottom: 16px;
         }
 
+        /* PROJECT IMAGE CLICK OVERLAY */
+        .project-img-wrap {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .project-card.featured .project-img-wrap {
+            height: 300px;
+            margin-bottom: 0;
+            order: 2;
+            border-radius: 10px;
+        }
+
         .project-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            display: block;
             filter: grayscale(30%) brightness(0.75);
             transition: filter 0.3s;
             border: 1px solid var(--border);
         }
 
-        .project-card:hover .project-img {
-            filter: grayscale(0%) brightness(1);
+        .project-card.featured .project-img-wrap .project-img {
+            height: 100%;
+            border: none;
         }
 
-        .project-card.featured .project-img {
-            height: 300px;
-            margin-bottom: 0;
-            order: 2;
-            border-radius: 10px;
+        .project-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(124, 58, 237, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-img-wrap:hover .project-img-overlay {
+            opacity: 1;
+        }
+
+        .project-img-wrap:hover .project-img {
+            filter: grayscale(0%) brightness(0.5);
+        }
+
+        .project-img-overlay span {
+            color: white;
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            padding: 10px 22px;
+            border-radius: 100px;
         }
 
         .project-card.featured .project-content {
@@ -1016,7 +1053,6 @@
             background: rgba(124, 58, 237, 0.1);
         }
 
-        /* FAQ */
         .faq-bg {
             background: var(--bg);
             padding: 100px 0;
@@ -1122,7 +1158,6 @@
             font-weight: 600;
         }
 
-        /* CONTACT */
         .contact-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1319,7 +1354,6 @@
             box-shadow: 0 10px 40px var(--purple-glow);
         }
 
-        /* FOOTER */
         footer {
             background: var(--bg2);
             padding: 50px 60px;
@@ -1371,7 +1405,6 @@
             border-top: 1px solid var(--border);
         }
 
-        /* CURSOR */
         .cursor-dot {
             position: fixed;
             pointer-events: none;
@@ -1416,7 +1449,6 @@
             transform: translateY(0);
         }
 
-        /* RESPONSIVE 900px */
         @media (max-width: 900px) {
             nav {
                 padding: 18px 24px;
@@ -1469,7 +1501,7 @@
                 grid-template-columns: 1fr;
             }
 
-            .project-card.featured .project-img {
+            .project-card.featured .project-img-wrap {
                 height: 200px;
                 margin-bottom: 20px;
                 order: 0;
@@ -1508,7 +1540,6 @@
             }
         }
 
-        /* RESPONSIVE 600px */
         @media (max-width: 600px) {
             .hero h1 {
                 font-size: 38px;
@@ -1782,6 +1813,7 @@
             <h2 class="section-title reveal">Selected<br><span class="gradient-text">Projects</span></h2>
             <div class="projects-grid">
 
+                <!-- AI INTERVIEW -->
                 <div class="project-card featured reveal">
                     <div class="project-content">
                         <div class="featured-badge"><i class="fa-solid fa-robot"></i> AI Project</div>
@@ -1797,9 +1829,14 @@
                                     class="fa-brands fa-github"></i> GitHub</a>
                         </div>
                     </div>
-                    <img class="project-img" src="ai-interview.png" alt="AI Interview Practice Assistant Pro">
+                    <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="project-img-wrap">
+                        <img class="project-img" src="ai-interview.png" alt="AI Interview Practice Assistant Pro">
+                        <div class="project-img-overlay"><span><i class="fa-brands fa-github"></i> View on GitHub</span>
+                        </div>
+                    </a>
                 </div>
 
+                <!-- AI CAREER BOT -->
                 <div class="project-card featured reveal">
                     <div class="project-content">
                         <div class="featured-badge"><i class="fa-solid fa-robot"></i> AI Project</div>
@@ -1815,13 +1852,23 @@
                                     class="fa-brands fa-github"></i> GitHub</a>
                         </div>
                     </div>
-                    <img class="project-img" src="ai-consultant.png" alt="AI Career Consultant Bot">
+                    <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="project-img-wrap">
+                        <img class="project-img" src="ai-consultant.png" alt="AI Career Consultant Bot">
+                        <div class="project-img-overlay"><span><i class="fa-brands fa-github"></i> View on GitHub</span>
+                        </div>
+                    </a>
                 </div>
 
+                <!-- FASHION HOUSE -->
                 <div class="project-card reveal">
                     <div class="project-num">03</div>
-                    <img class="project-img" src="fashion-house.png" alt="Fashion House"
-                        onerror="this.src='https://placehold.co/400x200/0d1120/7c3aed?text=Fashion+House'">
+                    <a href="https://joseline-nassazi11.github.io/ASSIGNMENT2/" target="_blank"
+                        class="project-img-wrap">
+                        <img class="project-img" src="fashion-house.png" alt="Fashion House"
+                            onerror="this.src='https://placehold.co/400x200/0d1120/7c3aed?text=Fashion+House'">
+                        <div class="project-img-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View Live</span></div>
+                    </a>
                     <div class="project-tech"><span>HTML</span><span>CSS</span><span>Figma</span></div>
                     <h3>Fashion House Website</h3>
                     <p>Designed and built a full brand website from Figma prototype to polished, fully responsive site —
@@ -1834,10 +1881,15 @@
                     </div>
                 </div>
 
+                <!-- MWF -->
                 <div class="project-card reveal">
                     <div class="project-num">04</div>
-                    <img class="project-img" src="mwf.png" alt="Mayondo Wood & Furniture"
-                        onerror="this.src='https://placehold.co/400x200/0d1120/a78bfa?text=MWF'">
+                    <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="project-img-wrap">
+                        <img class="project-img" src="mwf.png" alt="Mayondo Wood & Furniture"
+                            onerror="this.src='https://placehold.co/400x200/0d1120/a78bfa?text=MWF'">
+                        <div class="project-img-overlay"><span><i class="fa-brands fa-github"></i> View on GitHub</span>
+                        </div>
+                    </a>
                     <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                     <h3>Mayondo Wood & Furniture</h3>
                     <p>Built an online catalog for a local furniture business with no digital presence — customers can
@@ -1849,10 +1901,15 @@
                     </div>
                 </div>
 
+                <!-- E-COMMERCE -->
                 <div class="project-card reveal">
                     <div class="project-num">05</div>
-                    <img class="project-img" src="e-commerce.png" alt="E-Commerce"
-                        onerror="this.src='https://placehold.co/400x200/0d1120/06b6d4?text=E-Commerce'">
+                    <a href="https://joseline-nassazi11.github.io/portifolio/" target="_blank" class="project-img-wrap">
+                        <img class="project-img" src="e-commerce.png" alt="E-Commerce"
+                            onerror="this.src='https://placehold.co/400x200/0d1120/06b6d4?text=E-Commerce'">
+                        <div class="project-img-overlay"><span><i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                View Live</span></div>
+                    </a>
                     <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
                     <h3>E-Commerce Platform</h3>
                     <p>Complete e-commerce interface with dynamic product listings, working shopping cart, and smooth
@@ -1920,8 +1977,7 @@
                     <div class="faq-answer">
                         <p>Yes! I'm currently open to <strong>internship opportunities</strong>, <strong>freelance
                                 projects</strong>, and collaborations in AI engineering, web development, or UI/UX
-                            design. Reach out via the contact form or WhatsApp — I'm based in <strong>Kampala,
-                                Uganda</strong> and available for remote work too.</p>
+                            design. I'm based in <strong>Kampala, Uganda</strong> and available for remote work too.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -2025,7 +2081,7 @@
         </div>
     </footer>
 
-    <!-- CV PREVIEW MODAL -->
+    <!-- CV MODAL -->
     <div class="cv-modal-overlay" id="cvModal" onclick="closeCVModal(event)">
         <div class="cv-modal">
             <div class="cv-modal-header">
@@ -2037,19 +2093,18 @@
                     </div>
                 </div>
                 <div class="cv-modal-actions">
-                    <a href="Joseline_Nassazi_CV.pdf" download class="cv-download-btn"><i
+                    <a href="JOSELINE_NASSAZI_CV (3).pdf" download class="cv-download-btn"><i
                             class="fa-solid fa-download"></i> Download CV</a>
                     <button class="cv-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>
             <div class="cv-modal-body">
-                <iframe src="Joseline_Nassazi_CV.pdf" title="Joseline Nassazi CV"></iframe>
+                <iframe src="JOSELINE_NASSAZI_CV (3).pdf" title="Joseline Nassazi CV"></iframe>
             </div>
         </div>
     </div>
 
     <script>
-        // SCROLL REVEAL
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, i) => {
@@ -2058,7 +2113,6 @@
         }, { threshold: 0.08 });
         reveals.forEach(el => observer.observe(el));
 
-        // SKILL BARS
         const skillFills = document.querySelectorAll('.skill-fill');
         const skillObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2070,7 +2124,6 @@
         }, { threshold: 0.4 });
         skillFills.forEach(fill => skillObserver.observe(fill));
 
-        // FAQ
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -2080,19 +2133,17 @@
             });
         });
 
-        // CONTACT FORM
         const contactForm = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
         const formSuccess = document.getElementById('formSuccess');
         const formError = document.getElementById('formError');
         contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            const FORMSPREE_URL = 'https://formspree.io/f/mlgwwkjg';
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true; submitBtn.style.opacity = '0.7';
             formSuccess.style.display = 'none'; formError.style.display = 'none';
             try {
-                const response = await fetch(FORMSPREE_URL, { method: 'POST', body: new FormData(contactForm), headers: { 'Accept': 'application/json' } });
+                const response = await fetch('https://formspree.io/f/mlgwwkjg', { method: 'POST', body: new FormData(contactForm), headers: { 'Accept': 'application/json' } });
                 if (response.ok) { formSuccess.style.display = 'block'; contactForm.reset(); }
                 else throw new Error();
             } catch { formError.style.display = 'block'; }
@@ -2100,30 +2151,15 @@
             submitBtn.disabled = false; submitBtn.style.opacity = '1';
         });
 
-        // CV MODAL
-        function openCVModal(e) {
-            e.preventDefault();
-            document.getElementById('cvModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeModal() {
-            document.getElementById('cvModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        function closeCVModal(e) {
-            if (e.target === document.getElementById('cvModal')) closeModal();
-        }
+        function openCVModal(e) { e.preventDefault(); document.getElementById('cvModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeModal() { document.getElementById('cvModal').classList.remove('active'); document.body.style.overflow = ''; }
+        function closeCVModal(e) { if (e.target === document.getElementById('cvModal')) closeModal(); }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-        // CURSOR GLOW + COLORFUL TRAIL
         const glow = document.createElement("div");
         glow.style.cssText = "position:fixed;width:500px;height:500px;border-radius:50%;pointer-events:none;background:radial-gradient(circle, rgba(124,58,237,0.08), transparent 60%);z-index:0;transition:left 0.1s ease,top 0.1s ease;";
         document.body.appendChild(glow);
-        const trailColors = [
-            'rgba(124,58,237,0.75)', 'rgba(6,182,212,0.75)', 'rgba(139,92,246,0.75)',
-            'rgba(16,185,129,0.65)', 'rgba(245,158,11,0.65)', 'rgba(236,72,153,0.65)',
-            'rgba(99,102,241,0.75)', 'rgba(20,184,166,0.65)',
-        ];
+        const trailColors = ['rgba(124,58,237,0.75)', 'rgba(6,182,212,0.75)', 'rgba(139,92,246,0.75)', 'rgba(16,185,129,0.65)', 'rgba(245,158,11,0.65)', 'rgba(236,72,153,0.65)', 'rgba(99,102,241,0.75)', 'rgba(20,184,166,0.65)'];
         let colorIndex = 0, lastTrailTime = 0;
         document.addEventListener("mousemove", e => {
             glow.style.left = e.clientX - 250 + "px";
