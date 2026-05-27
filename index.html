@@ -813,9 +813,16 @@
             padding: 0 52px
         }
 
-        .projects-grid {
+        .projects-featured {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 14px
+        }
+
+        .projects-small {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px
         }
 
@@ -854,7 +861,6 @@
         }
 
         .pcard.span2 {
-            grid-column: 1/-1;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
@@ -1031,7 +1037,7 @@
 
         .pimg {
             width: 100%;
-            height: 210px;
+            height: 180px;
             object-fit: cover;
             filter: grayscale(20%) brightness(0.68);
             transition: filter 0.3s;
@@ -2132,7 +2138,6 @@
             border-top: 1px solid var(--border)
         }
 
-        /* CURSOR */
         .cur {
             position: fixed;
             pointer-events: none;
@@ -2154,7 +2159,6 @@
             }
         }
 
-        /* REVEAL */
         .reveal {
             opacity: 0;
             transform: translateY(28px);
@@ -2351,6 +2355,10 @@
                 grid-template-columns: 1fr
             }
 
+            .projects-small {
+                grid-template-columns: 1fr
+            }
+
             .pcard.span2 .pimg-wrap,
             .safari-mock,
             .analyst-preview,
@@ -2454,13 +2462,12 @@
                         style="margin-right:6px"></i>View CV</a>
             </div>
             <div class="hero-social">
-                <a href="https://github.com/Joseline-Nassazi11" target="_blank" aria-label="GitHub"><i
-                        class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/joseline-nassazi" target="_blank" aria-label="LinkedIn"><i
+                <a href="https://github.com/Joseline-Nassazi11" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/joseline-nassazi" target="_blank"><i
                         class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://wa.me/256743120890" target="_blank" class="wa" aria-label="WhatsApp"><i
+                <a href="https://wa.me/256743120890" target="_blank" class="wa"><i
                         class="fa-brands fa-whatsapp"></i></a>
-                <a href="mailto:nassazijoselynn4@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="mailto:nassazijoselynn4@gmail.com"><i class="fa-solid fa-envelope"></i></a>
             </div>
         </div>
         <div class="hero-visual">
@@ -2563,11 +2570,9 @@
         <h2 class="section-title reveal">Skills &amp;<br><span class="g">Technologies</span></h2>
         <div class="skills-layout reveal">
             <div>
-                <p class="skills-text">
-                    I specialise in building <strong>agentic AI systems</strong> — RAG pipelines, multi-step LangGraph
-                    agents, and full-stack applications. I started in frontend and grew into AI engineering, so I ship
-                    complete, working products.
-                </p>
+                <p class="skills-text">I specialise in building <strong>agentic AI systems</strong> — RAG pipelines,
+                    multi-step LangGraph agents, and full-stack applications. I started in frontend and grew into AI
+                    engineering, so I ship complete, working products.</p>
                 <div class="skills-grid-wrap">
                     <div class="skill-category">
                         <div class="skill-cat-label">AI / ML Engineering</div>
@@ -2658,7 +2663,9 @@
         <div class="projects-inner">
             <div class="section-label">Work</div>
             <h2 class="section-title reveal">Selected<br><span class="g">Projects</span></h2>
-            <div class="projects-grid">
+
+            <!-- FEATURED PROJECTS -->
+            <div class="projects-featured">
 
                 <!-- 01: ANALYST AI -->
                 <div class="pcard span2 reveal">
@@ -2768,49 +2775,11 @@
                     </a>
                 </div>
 
-                <!-- 03: AI INTERVIEW -->
-                <div class="pcard reveal">
-                    <div class="pnum">03</div>
-                    <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="pimg-wrap">
-                        <img class="pimg" src="ai-interview.png" alt="AI Interview Practice Assistant"
-                            onerror="this.src='https://placehold.co/600x300/0b0f1a/7c3aed?text=AI+Interview+Assistant'">
-                        <div class="pimg-overlay"><span><i class="fa-brands fa-github"></i>View on GitHub</span></div>
-                    </a>
-                    <div class="ptechs" style="margin-top:14px">
-                        <span>Python</span><span>GPT-4o</span><span>Streamlit</span><span>Plotly</span></div>
-                    <h3>AI Interview Practice Assistant Pro</h3>
-                    <p>Full interview simulation — technical, behavioral, and system design. 6 prompt engineering
-                        techniques, readiness scoring, real-time cost tracking, and analytics dashboard.</p>
-                    <div class="plinks">
-                        <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="plink"><i
-                                class="fa-brands fa-github"></i>GitHub</a>
-                    </div>
-                </div>
-
-                <!-- 04: AI CAREER BOT -->
-                <div class="pcard reveal">
-                    <div class="pnum">04</div>
-                    <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="pimg-wrap">
-                        <img class="pimg" src="ai-consultant.png" alt="AI Career Consultant Bot"
-                            onerror="this.src='https://placehold.co/600x300/0b0f1a/a78bfa?text=AI+Career+Bot'">
-                        <div class="pimg-overlay"><span><i class="fa-brands fa-github"></i>View on GitHub</span></div>
-                    </a>
-                    <div class="ptechs" style="margin-top:14px"><span>Python</span><span>GPT-4o</span><span>MCP
-                            Server</span><span>RAG</span></div>
-                    <h3>AI Career Consultant Bot</h3>
-                    <p>Intelligent career advisory chatbot with live job market data, skills gap analysis, salary
-                        calculations, and a real-time token cost analytics dashboard.</p>
-                    <div class="plinks">
-                        <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="plink"><i
-                                class="fa-brands fa-github"></i>GitHub</a>
-                    </div>
-                </div>
-
-                <!-- 05: VOXEL -->
+                <!-- 03: VOXEL -->
                 <div class="pcard span2 voxel-card reveal">
                     <div>
                         <div class="feat-badge cyan"><i class="fa-solid fa-microphone"></i>&nbsp;Voice AI · Uganda</div>
-                        <div class="pnum">05</div>
+                        <div class="pnum">03</div>
                         <div class="ptechs"><span>React Native</span><span>FastAPI</span><span>Whisper
                                 ASR</span><span>MMS-1B</span><span>SpeechT5</span><span>GPT-4o-mini</span><span>Modal</span>
                         </div>
@@ -2872,6 +2841,49 @@
                     </a>
                 </div>
 
+            </div>
+
+            <!-- SMALL PROJECTS GRID -->
+            <div class="projects-small">
+
+                <!-- 04: AI INTERVIEW -->
+                <div class="pcard reveal">
+                    <div class="pnum">04</div>
+                    <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="pimg-wrap">
+                        <img class="pimg" src="ai-interview.png" alt="AI Interview Practice Assistant"
+                            onerror="this.src='https://placehold.co/600x300/0b0f1a/7c3aed?text=AI+Interview+Assistant'">
+                        <div class="pimg-overlay"><span><i class="fa-brands fa-github"></i>View on GitHub</span></div>
+                    </a>
+                    <div class="ptechs" style="margin-top:14px">
+                        <span>Python</span><span>GPT-4o</span><span>Streamlit</span><span>Plotly</span></div>
+                    <h3>AI Interview Practice Assistant Pro</h3>
+                    <p>Full interview simulation — technical, behavioral, and system design. 6 prompt engineering
+                        techniques, readiness scoring, real-time cost tracking, and analytics dashboard.</p>
+                    <div class="plinks">
+                        <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="plink"><i
+                                class="fa-brands fa-github"></i>GitHub</a>
+                    </div>
+                </div>
+
+                <!-- 05: AI CAREER BOT -->
+                <div class="pcard reveal">
+                    <div class="pnum">05</div>
+                    <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="pimg-wrap">
+                        <img class="pimg" src="ai-consultant.png" alt="AI Career Consultant Bot"
+                            onerror="this.src='https://placehold.co/600x300/0b0f1a/a78bfa?text=AI+Career+Bot'">
+                        <div class="pimg-overlay"><span><i class="fa-brands fa-github"></i>View on GitHub</span></div>
+                    </a>
+                    <div class="ptechs" style="margin-top:14px"><span>Python</span><span>GPT-4o</span><span>MCP
+                            Server</span><span>RAG</span></div>
+                    <h3>AI Career Consultant Bot</h3>
+                    <p>Intelligent career advisory chatbot with live job market data, skills gap analysis, salary
+                        calculations, and a real-time token cost analytics dashboard.</p>
+                    <div class="plinks">
+                        <a href="https://github.com/Joseline-Nassazi11" target="_blank" class="plink"><i
+                                class="fa-brands fa-github"></i>GitHub</a>
+                    </div>
+                </div>
+
                 <!-- 06: FASHION HOUSE -->
                 <div class="pcard reveal">
                     <div class="pnum">06</div>
@@ -2930,8 +2942,8 @@
                         <p><strong>SafariMind</strong> is a full-stack AI agent for Uganda's tourism industry. Tourists
                             get a 24/7 AI concierge that plans personalised itineraries using a <strong>LangGraph ReAct
                                 agent</strong>, hybrid RAG over a Uganda knowledge base, and live Tavily web search.
-                            Local SMEs get a configured customer service bot that handles queries in any language. Built
-                            with <strong>FastAPI, Next.js, FAISS, SQLite, and SSE streaming</strong>.</p>
+                            Local SMEs get a configured customer service bot. Built with <strong>FastAPI, Next.js,
+                                FAISS, SQLite, and SSE streaming</strong>.</p>
                     </div>
                 </div>
                 <div class="fitem">
@@ -2963,7 +2975,7 @@
                     <div class="fans">
                         <p>I'm building expertise in <strong>transformers</strong>, text embeddings, and neural network
                             architectures. I work with <strong>HuggingFace</strong> models, understand tokenization and
-                            attention mechanisms, and apply them in RAG pipelines. Currently exploring <strong>PyTorch
+                            attention, and apply them in RAG pipelines. Currently exploring <strong>PyTorch
                                 fine-tuning</strong> for low-resource language models.</p>
                     </div>
                 </div>
@@ -2980,10 +2992,10 @@
                     <button class="fq">What is RAG and why does it matter?<span class="ficon"><i
                                 class="fa-solid fa-plus"></i></span></button>
                     <div class="fans">
-                        <p><strong>Retrieval-Augmented Generation (RAG)</strong> connects LLMs to external knowledge —
-                            documents, databases, the web — so they answer with accurate facts instead of hallucinating.
-                            I implement RAG with <strong>FAISS vector stores</strong> and LangChain, as seen in Analyst
-                            AI, SafariMind, and the Career Consultant Bot.</p>
+                        <p><strong>Retrieval-Augmented Generation (RAG)</strong> connects LLMs to external knowledge so
+                            they answer with accurate facts instead of hallucinating. I implement RAG with <strong>FAISS
+                                vector stores</strong> and LangChain, as seen in Analyst AI, SafariMind, and the Career
+                            Consultant Bot.</p>
                     </div>
                 </div>
             </div>
@@ -3051,13 +3063,11 @@
         <div class="foot-logo">JN<em>.</em></div>
         <p>© 2025 Joseline Nassazi. All rights reserved.</p>
         <div class="foot-links">
-            <a href="https://github.com/Joseline-Nassazi11" target="_blank" aria-label="GitHub"><i
-                    class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/joseline-nassazi" target="_blank" aria-label="LinkedIn"><i
+            <a href="https://github.com/Joseline-Nassazi11" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/joseline-nassazi" target="_blank"><i
                     class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://wa.me/256743120890" target="_blank" aria-label="WhatsApp"><i
-                    class="fa-brands fa-whatsapp"></i></a>
-            <a href="mailto:nassazijoselynn4@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/256743120890" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="mailto:nassazijoselynn4@gmail.com"><i class="fa-solid fa-envelope"></i></a>
         </div>
     </footer>
 
@@ -3085,11 +3095,9 @@
     </div>
 
     <script>
-        // Reveal
         const ro = new IntersectionObserver((entries) => { entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100) }); }, { threshold: 0.07 });
         document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-        // FAQ
         document.querySelectorAll('.fq').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement, isOpen = item.classList.contains('open');
@@ -3098,18 +3106,15 @@
             });
         });
 
-        // CV
         function openCV(e) { e.preventDefault(); document.getElementById('cvModal').classList.add('active'); document.body.style.overflow = 'hidden' }
         function closeCV() { document.getElementById('cvModal').classList.remove('active'); document.body.style.overflow = '' }
         function closeCVBack(e) { if (e.target === document.getElementById('cvModal')) closeCV() }
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCV() });
 
-        // Hamburger
         const ham = document.getElementById('hamburger'), mob = document.getElementById('mobileMenu');
         ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open') });
         mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open') }));
 
-        // Contact form
         document.getElementById('contactForm').addEventListener('submit', async function (e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
@@ -3124,7 +3129,6 @@
             btn.textContent = 'Send Message →'; btn.disabled = false; btn.style.opacity = '1';
         });
 
-        // Cursor trail
         const glw = document.createElement('div');
         glw.style.cssText = 'position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(109,40,217,0.06),transparent 60%);z-index:0;transition:left 0.12s ease,top 0.12s ease;';
         document.body.appendChild(glw);
