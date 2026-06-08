@@ -463,6 +463,65 @@
             }
         }
 
+
+        /* MOBILE BADGE */
+        .hero-mobile-badge {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 12px 16px;
+            background: var(--bg2);
+            border: 1px solid rgba(29, 106, 255, 0.28);
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 440px
+        }
+
+        .hero-mobile-badge .b-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.3px;
+            flex-shrink: 0
+        }
+
+        .hero-mobile-badge .b-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px
+        }
+
+        .hero-mobile-badge .b-tag {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(29, 106, 255, 0.1);
+            border: 1px solid rgba(29, 106, 255, 0.25);
+            color: var(--blue-light)
+        }
+
+        .hero-mobile-badge .b-open {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--lime-light);
+            flex-shrink: 0
+        }
+
+        .hero-mobile-badge .b-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--lime-light);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--lime-light);
+            animation: blink 2s ease infinite
+        }
+
         /* NAV */
         nav {
             position: fixed;
@@ -3025,26 +3084,11 @@
             }
 
             .hero-badge {
-                position: relative !important;
-                bottom: auto !important;
-                left: auto !important;
-                margin-top: 12px;
-                width: 100%;
-                min-width: unset;
-                border-radius: 8px;
-                display: flex !important;
-                align-items: center;
-                gap: 12px;
-                padding: 12px 14px;
-                flex-wrap: wrap
+                display: none !important
             }
 
-            .hero-badge .b-tags {
-                margin-bottom: 0 !important
-            }
-
-            .hero-badge .b-open {
-                margin-top: 0 !important
+            .hero-mobile-badge {
+                display: flex !important
             }
 
             .hero-corner-bl,
@@ -3232,6 +3276,15 @@
                 <a href="mailto:nassazijoselynn4@gmail.com"><i class="fa-solid fa-envelope"></i></a>
             </div>
 
+            <div class="hero-mobile-badge">
+                <div class="b-title">AI Engineer</div>
+                <div class="b-tags">
+                    <span class="b-tag">LangGraph</span>
+                    <span class="b-tag">RAG</span>
+                    <span class="b-tag">FastAPI</span>
+                </div>
+                <div class="b-open"><span class="b-dot"></span>Open to Work</div>
+            </div>
             <div class="seeking-block">
                 <div class="seeking-label">Currently seeking</div>
                 <div class="seeking-items">
