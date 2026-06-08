@@ -959,7 +959,7 @@
             font-weight: 800;
             line-height: 1.05;
             letter-spacing: -1.5px;
-            margin-bottom: 52px;
+            margin-bottom: 60px;
             color: var(--text)
         }
 
@@ -1245,7 +1245,7 @@
         /* PROJECTS */
         .projects-bg {
             background: var(--bg);
-            padding: 96px 0;
+            padding: 112px 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             position: relative;
@@ -1262,8 +1262,8 @@
         .projects-featured {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            margin-bottom: 24px
+            gap: 16px;
+            margin-bottom: 28px
         }
 
         .pcard {
@@ -1291,7 +1291,7 @@
 
         /* LEFT CONTENT PANEL */
         .pcard-left {
-            padding: 40px 36px;
+            padding: 48px 44px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1320,7 +1320,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 0 15px 15px 0;
-            min-height: 320px
+            min-height: 360px
         }
 
         /* ANALYST — purple tint */
@@ -1529,7 +1529,7 @@
         .projects-small {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px
+            gap: 16px
         }
 
         .pcard.small-card {
@@ -1597,7 +1597,7 @@
         }
 
         .small-card-body {
-            padding: 18px 20px
+            padding: 20px 22px
         }
 
         .small-card-body .ptechs {
@@ -3015,12 +3015,45 @@
             }
 
             .hero-visual {
-                order: -1
+                order: -1;
+                padding-bottom: 0
             }
 
             .hero-img-wrap {
-                width: 200px;
-                height: 280px
+                width: 220px;
+                height: 300px
+            }
+
+            .hero-badge {
+                position: relative !important;
+                bottom: auto !important;
+                left: auto !important;
+                margin-top: 12px;
+                width: 100%;
+                min-width: unset;
+                border-radius: 8px;
+                display: flex !important;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 14px;
+                flex-wrap: wrap
+            }
+
+            .hero-badge .b-tags {
+                margin-bottom: 0 !important
+            }
+
+            .hero-badge .b-open {
+                margin-top: 0 !important
+            }
+
+            .hero-corner-bl,
+            .hero-img-frame::after {
+                display: none !important
+            }
+
+            .hero-visual {
+                padding-bottom: 0 !important
             }
 
             .section {
@@ -3047,6 +3080,10 @@
 
             .pcard.span2 {
                 grid-template-columns: 1fr
+            }
+
+            .pcard-right {
+                min-height: 260px !important
             }
 
             .projects-small {
@@ -3097,8 +3134,8 @@
             }
 
             .hero-img-wrap {
-                width: 170px;
-                height: 240px
+                width: 200px;
+                height: 270px
             }
 
             .section-title {
@@ -3109,6 +3146,14 @@
             .btn-submit {
                 width: 100%;
                 justify-content: center
+            }
+
+            .projects-small {
+                grid-template-columns: 1fr !important
+            }
+
+            .small-card-img {
+                height: 140px
             }
         }
     </style>
